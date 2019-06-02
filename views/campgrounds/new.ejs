@@ -1,0 +1,42 @@
+<% include ../partials/header  %>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1>Create a New Campground</h1>
+    <hr>
+    <p class="lead">Enter the details for new campgrounds.</p>
+  </div>
+</div>
+<div class="container">
+  <form action="/campgrounds" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Name</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+        placeholder="Enter Name" name="name">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Location</label>
+      <input type="text" class="form-control" id="location" placeholder="Yosemite National Park, CA" name="location">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlFile1">Image Upload</label>
+      <input type="file" class="form-control-file" id="image" name="image" required accept="image/*">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Enter Description</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"
+        placeholder="Enter details of Campground"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPrice">Enter Price</label>
+      <input type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)"
+        id="exampleInputPrice" min="0.01" step="0.01" name="price">
+      <div class="input-group-append">
+        <span class="input-group-text">$</span>
+        <span class="input-group-text">0.00</span>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+</div>
+<% include ../partials/footer %>

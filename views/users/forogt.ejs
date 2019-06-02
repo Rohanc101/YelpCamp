@@ -1,0 +1,18 @@
+<% include ../partials/header  %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form action="/forgot" method="POST">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        placeholder="Enter email" name="email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                        else.</small>
+                </div>
+                <button type="submit" class="btn btn-primary">Reset Password</button>
+            </form>
+        </div>
+    </div>
+</div>
+<% include ../partials/footer  %>

@@ -1,0 +1,37 @@
+<% include ../partials/header  %>
+<div class="container" id="User_Profile">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img src="<%= user.avatar %>" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><%= user.firstName +" "+ user.lastName %></h5>
+                    <p class="card-text"><%= user.email %></p>
+                    <% if(!currentUser || currentUser.username !== user.username) { %>
+                    <a href="/follow/<%= user.id %>"><button class="btn btn-primary">Follow
+                            <%= user.username %></button></a>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <h2 class="border-bottom border-gray">Campground Created by <%= user.username %></h2>
+            <% campgrounds.forEach((campground)=>{ %>
+            <div
+                class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <h3 class="mb-0"><a href="/campgrounds/<%= campground.id %>"><%= campground.name %></a></h3>
+                    <div class="mb-1 text-muted"><%= moment(campground.createdAt).fromNow() %></div>
+                    <p class="card-text mb-auto"><%= campground.description.substring(0,200) %>...</p>
+                    <a href="/campgrounds/<%= campground._id %>" class="stretched-link">Continue reading</a>
+                </div>
+                <div class="col-auto d-none d-lg-block">
+                    <img src="<%= campground.image %>" class="bd-placeholder-img" alt="Responsive image" width="200"
+                        height="250">
+                </div>
+            </div>
+            <% }); %>
+        </div>
+    </div>
+</div>
+<% include ../partials/footer  %>

@@ -1,0 +1,16 @@
+<% include partials/header  %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form action="/forgot" method="POST">
+                <legend>Forgot Password</legend>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Email</label>
+                    <input type="email" class="form-control" id="exampleInputPassword1" placeholder="Enter email" name="email">
+                </div>
+                <button type="submit" class="btn btn-primary">Reset Password</button>
+            </form>
+        </div>
+    </div>
+</div>
+<% include partials/footer %>

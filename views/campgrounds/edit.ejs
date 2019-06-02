@@ -1,0 +1,43 @@
+<% include ../partials/header  %>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1>Edit Campground Details</h1>
+    <hr>
+    <p class="lead">Enter new details for <%= campground.name %></p>
+  </div>
+</div>
+<div class="container">
+  <form action="/campgrounds/<%= campground._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Name</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+        name="campground[name]" value="<%= campground.name %>">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Image</label>
+      <input type="file" class="form-control" id="image" name="image" accept="image/*">
+    </div>
+    <div class="form-group">
+      <label for="location">Location</label>
+      <input type="text" class="form-control" id="location" value="<%= campground.location %>"
+        name="campground[location]">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Enter Description</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+        name="campground[description]"><%= campground.description %></textarea>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPrice">Enter Price</label>
+      <input type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)"
+        id="exampleInputPrice" min="0.01" step="0.01" name="campground[price]" value="<%= campground.price %>">
+      <div class="input-group-append">
+        <span class="input-group-text">$</span>
+        <span class="input-group-text">0.00</span>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+</div>
+<% include ../partials/footer %>

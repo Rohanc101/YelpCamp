@@ -1,0 +1,19 @@
+<% include ../partials/header  %>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1> Edit Comments</h1>
+      <hr>
+      <p class="lead">Enter the comments for <%= campground.name %> campground.</p>
+    </div>
+  </div>
+  <div class="container">
+    <form action="/campgrounds/<%= campground_id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Enter Comment</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+          placeholder="Enter Comment" name="comment[text]" value="<%= comment.text %>">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+<% include ../partials/footer %>
